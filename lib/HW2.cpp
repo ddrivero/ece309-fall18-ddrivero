@@ -74,6 +74,7 @@ class List{
           n++;
           a = a->getNext();
         }        
+		return n;
       }
   
       bool remove(string &copy)
