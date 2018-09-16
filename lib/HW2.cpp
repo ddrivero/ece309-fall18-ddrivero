@@ -14,7 +14,7 @@ class ListNode{
     string getWord() { return word; }
 };
 
-Class List{
+class List{
   private:
     ListNode *head;
     ListNode *tail;
@@ -40,7 +40,7 @@ Class List{
             head = node;
             tail = node;
           } else {
-            tail->setNExt(node);
+            tail->setNext(node);
             tail = node;
           }
       }
@@ -55,7 +55,7 @@ Class List{
         append(a);
       }
       
-      ListNode get(int n)
+      ListNode *get(int n)
       {
         ListNode *a = head;
         for(int i = 1; i < n; i++)
@@ -81,7 +81,7 @@ Class List{
         if (!empty())
         {
           copy = head->getWord();
-          ListNode *tmp = head->getNext();
+          ListNode *temp = head->getNext();
           delete head;
           head = temp;
           if (temp == NULL)
