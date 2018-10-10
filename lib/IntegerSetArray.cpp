@@ -1,7 +1,5 @@
 #include <iostream>
 
-using namespace std;
-
 class IntegerSet {
 protected:
    int size;
@@ -64,22 +62,3 @@ public:
     cout<<endl;
     }
 };
-
-int main(){
-    IntegerSetArray blah(5);
-
-    bool statement = blah.search(2);
-    cout<<statement<<endl;
-    blah.insert(1);
-    blah.insert(4);
-    blah.insert(12);
-    blah.insert(1);
-    blah.insert(15);
-    blah.print();
-
-    blah.remove(1);
-    blah.print();
-
-
-    return 0;
-}
