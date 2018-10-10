@@ -21,7 +21,7 @@ class List{
   public:
       List(){
           head = NULL;
-          tail = NULL;      
+          tail = NULL;
       }
       ~List()
       {
@@ -31,7 +31,7 @@ class List{
           remove(t);
         }
       }
-      
+
       void append(string a)
       {
         ListNode *node = new ListNode(a);
@@ -44,17 +44,17 @@ class List{
             tail = node;
           }
       }
-      
+
       bool empty()
       {
         return head == NULL;
       }
-      
+
       void push_back(string a)
       {
         append(a);
       }
-      
+
       ListNode *get(int n)
       {
         ListNode *a = head;
@@ -64,7 +64,7 @@ class List{
         }
         return a;
       }
-      
+
       int length()
       {
         ListNode *a = head;
@@ -73,10 +73,10 @@ class List{
         {
           n++;
           a = a->getNext();
-        }        
+        }
 		return n;
       }
-  
+
       bool remove(string &copy)
       {
         if (!empty())
@@ -91,15 +91,15 @@ class List{
         }
         return false;
       }
-      
+
       string remove_front()
       {
         string a;
         remove(a);
         return a;
       }
-      
-      
+
+
 };
 
 int main(){

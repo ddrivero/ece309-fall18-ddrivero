@@ -1,6 +1,6 @@
 
 # add files you create here
-OBJ = PList.o 
+OBJ = IntegerSetArry.o 
 
 all: libece309.a
 
