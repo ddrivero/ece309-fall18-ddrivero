@@ -16,7 +16,7 @@ public:
 class IntegerSetArray : public IntegerSet {
 private:
     int *arr;
-    int place;
+
 public:
     IntegerSetArray(int siz):IntegerSet(siz){
         arr = new int[siz];

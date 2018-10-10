@@ -1,6 +1,6 @@
 
 # list the name of each file (without the .cpp file at the end)
-EXE = test
+EXE = IntegerSetArray_test
 
 all: $(EXE)
 
