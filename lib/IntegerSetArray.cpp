@@ -55,10 +55,4 @@ public:
         }
     }
 
-    void print(){
-    for(int i = 0; i < IntegerSet::size; i++){
-        cout<<arr[i]<<" ";
-    }
-    cout<<endl;
-    }
 };
