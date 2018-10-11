@@ -12,7 +12,7 @@ public:
         while(str[i] != 0){
             i++;
         }
-        length = i;
+        length = i - 1;
 
         for(i = 0; i < length; i++){
             arr[i] = (int)str[i];
