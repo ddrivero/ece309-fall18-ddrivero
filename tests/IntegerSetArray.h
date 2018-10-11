@@ -1,57 +1,141 @@
 #include <iostream>
 
-class IntegerSet {
-protected:
-   int size;
-   int hash(int key) { return (key * 997) % size; }
-public:
-   IntegerSet(int htsize):size(htsize) {}
-   virtual bool insert(int) = 0;
-   virtual bool search(int) const = 0;
-   virtual void remove(int) = 0;
-};
+using namespace std;
 
-class IntegerSetArray : public IntegerSet {
+class IntArray{
 private:
     int *arr;
+    int length;
 
 public:
-    IntegerSetArray(int siz):IntegerSet(siz){
-        arr = new int[siz];
-        for(int i = 0; i < siz; i++){
-            arr[i] = -1;
+    IntArray(const char* str)
+    {
+        int i = 0;
+        while(str[i] != 0){
+            i++;
+        }
+        length = i;
+
+        for(i = 0; i < length; i++){
+            arr[i] = (int)str[i];
         }
     }
 
-    bool insert(int a)
+    IntArray(int size, int val = 0)
     {
-        for(int i = 0; i < IntegerSet::size; i++){
-            if(arr[i] < 0){
-                arr[i] = a;
-                return true;
-            }
+        length = size;
+        arr = new int[size];
+        for(int i = 0; i < size; i++){
+            arr[i] = val;
         }
-        return false;
     }
 
-    bool search(int a) const
+    int* getArr(){return arr;}
+
+    int get(int index) const{return arr[index];}
+
+    int getLength(){return length;}
+
+    void set(int index, int val){arr[index] = val;}
+
+    int& operator[](int index){return arr[index];}
+
+    IntArray& operator+=(const IntArray &rhs)
     {
-        if(a > 0){
-            for(int i = 0; i < IntegerSet::size; i++){
-                if(arr[i] == a){
-                    return true;
-                }
-            }
+        for(int i = 0; i < length && i < rhs.length; i++){
+            set(i, get(i) + rhs.get(i));
         }
-        return false;
+        return *this;
     }
 
-    void remove(int a)
+    IntArray operator+(const IntArray &rhs) const
     {
-        for(int i = 0; i < IntegerSet::size; i++){
-            if(arr[i] == a){
-                arr[i] = -1;
+        IntArray temp(length);
+        for(int i = 0 ; i < length; i++){
+            temp[i] = get(i);
+        }
+        for(int i = 0; i < length && i < rhs.length; i++){
+            temp[i] = get(i) + rhs.get(i);
+        }
+        return temp;
+    }
+
+    IntArray operator-(const IntArray &rhs) const
+    {
+        IntArray temp(length);
+        for(int i = 0 ; i < length; i++){
+            temp[i] = get(i);
+        }
+        for(int i = 0; i < length && i < rhs.length; i++){
+            temp[i] = get(i) - rhs.get(i);
+        }
+        return temp;
+    }
+
+    IntArray operator*(int x) const
+    {
+        IntArray temp(length);
+        for(int i = 0; i < length; i++){
+            temp[i] = get(i) * x;
+        }
+        return temp;
+    }
+
+    IntArray operator/(int x) const
+    {
+        IntArray temp(length);
+        for(int i = 0; i < length; i++){
+            temp[i] = get(i) / x;
+        }
+        return temp;
+    }
+
+    IntArray operator<<(int count) const
+    {
+        IntArray temp(length);
+        for(int i = 0; i < length; i++){
+            if(i - count < 0){
+                temp[i] = get(length + i - count);
+            } else {
+                temp[i] = get(i - count);
             }
         }
+        return temp;
     }
+
+    operator char*() const
+    {
+        bool zero = false;
+        char* temp = new char[length];
+        for(int i = 0; i < length; i++){
+            if(get(i) >= 0 && get(i) <= 255){
+                if(get(i) == 0) zero = true;
+                temp[i] = (char)get(i);
+            } else {
+                temp[i] = ' ';
+            }
+        }
+
+        if(!zero){
+            char* temp2 = new char[length+1];
+            for(int i = 0; i < length; i++){
+                temp2[i] = temp[i];
+            }
+            temp2[length] = (char)0;
+            return temp2;
+        }
+
+        return temp;
+    }
+
+    operator int() const
+    {
+        int total = 0;
+        for(int i = 0; i < length; i++){
+            total += arr[i];
+        }
+        total = total / length;
+        return total;
+    }
+
 };
