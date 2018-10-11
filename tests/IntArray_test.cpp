@@ -6,6 +6,8 @@ int main() {
   int testPassCnt = 0;
   int testFailCnt = 0;
 
+  printf("hello world\n");
+
   // test ascii constructor
   IntArray ascii("AB");
   if (ascii.get(0) == 65 && ascii.get(1) == 66) {
