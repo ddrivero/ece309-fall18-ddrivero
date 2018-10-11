@@ -10,6 +10,7 @@ int main() {
 
   // test ascii constructor
   IntArray ascii("AB");
+  printf("constructed ascii AB\n");
   if (ascii.get(0) == 65 && ascii.get(1) == 66) {
     testPassCnt++;
   } else {
