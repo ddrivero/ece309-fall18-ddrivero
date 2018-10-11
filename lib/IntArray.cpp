@@ -11,7 +11,7 @@ public:
     IntArray(const char* str)
     {
         int i = 0;
-        while(str[i] != NULL){
+        while(str[i] != 0){
             i++;
         }
         length = i;
@@ -136,5 +136,11 @@ public:
         total = total / length;
         return total;
     }
+
+int main(){
+
+
+return 0;
+}
 
 };
