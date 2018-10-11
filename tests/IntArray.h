@@ -11,7 +11,7 @@ public:
     IntArray(const char* str)
     {
         int i = 0;
-        while(str[i] != NULL){
+        while(str[i] != 0){
             i++;
         }
         length = i;
@@ -45,6 +45,7 @@ public:
         for(int i = 0; i < length && i < rhs.length; i++){
             set(i, get(i) + rhs.get(i));
         }
+        return *this;
     }
 
     IntArray operator+(const IntArray &rhs) const
