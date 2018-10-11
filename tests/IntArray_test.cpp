@@ -138,6 +138,7 @@ int main() {
     printf("Test Fail: avg should be 2, instead of %d\n", avg);
   }
 
+  //added .exe file
   // print test result
   printf("Tests passed: %d, tests failed: %d\n", testPassCnt, testFailCnt);
 
