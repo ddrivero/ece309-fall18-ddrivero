@@ -17,6 +17,8 @@ public:
         }
         length = i;
 
+        cout<<"found the length"<<endl;
+
         for(i = 0; i < length; i++){
             arr[i] = (int)str[i];
         }
