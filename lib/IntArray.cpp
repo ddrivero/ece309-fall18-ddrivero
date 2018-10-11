@@ -45,6 +45,7 @@ public:
         for(int i = 0; i < length && i < rhs.length; i++){
             set(i, get(i) + rhs.get(i));
         }
+        return *this;
     }
 
     IntArray operator+(const IntArray &rhs) const
@@ -136,11 +137,5 @@ public:
         total = total / length;
         return total;
     }
-
-int main(){
-
-
-return 0;
-}
 
 };
