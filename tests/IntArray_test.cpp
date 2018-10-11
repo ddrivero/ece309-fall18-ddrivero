@@ -6,7 +6,7 @@ int main() {
   int testPassCnt = 0;
   int testFailCnt = 0;
 
-  printf("hello world\n");
+  printf("1\n");
 
   // test ascii constructor
   IntArray ascii("AB");
@@ -18,6 +18,8 @@ int main() {
            ascii.get(0), ascii.get(1));
   }
 
+  printf("2\n");
+
   // test int& operator[](int index)
   if (ascii[0] == 65 && ascii[1] == 66) {
     testPassCnt++;
@@ -27,6 +29,8 @@ int main() {
         "Test Fail: ascii indexing should be {65, 66}, instead of {%d, %d}\n",
         ascii[0], ascii[1]);
   }
+
+  printf("3\n");
 
   // test (length,val) constructor
   // generate lhs = {6, 6, 6}
@@ -38,6 +42,8 @@ int main() {
     printf("Test Fail: lhs should be {6, 6, 6}, instead of {%d, %d, %d}\n",
            lhs.get(0), lhs.get(1), lhs.get(2));
   }
+
+  printf("4\n");
 
   // test operator+=(const IntArray &rhs)
   IntArray rhs(4, 1);
@@ -53,6 +59,8 @@ int main() {
            lhs.get(0), lhs.get(1), lhs.get(2), lhs.getLength());
   }
 
+  printf("5\n");
+
   // test IntArray operator+(const IntArray &rhs) const
   // reuslting sum = {6,6,6} + {1,1,1} = {7,7,7}
   IntArray nlhs(3, 6);
@@ -66,6 +74,8 @@ int main() {
            sum.get(0), sum.get(1), sum.get(2));
   }
 
+  printf("6\n");
+
   // test IntArray operator-(const IntArray &rhs) const
   // reuslting sub = {6,6,6} - {1,1,1} = {5,5,5}
   IntArray sub = nlhs - nrhs;
@@ -76,6 +86,8 @@ int main() {
     printf("Test Fail: sub should be {5, 5, 5}, instead of {%d, %d, %d}\n",
            sub.get(0), sub.get(1), sub.get(2));
   }
+
+  printf("7\n");
 
   // test IntArray operator*(int x) const;
   // reuslting multi = {4,4,4} * 2 = {8,8,8}
@@ -89,6 +101,8 @@ int main() {
            multi.get(0), multi.get(1), multi.get(2));
   }
 
+  printf("8\n");
+
   // test IntArray operator/(int x) const;
   // reuslting div = {4,4,4} / 2 = {2,2,2}
   IntArray div = base / 2;
@@ -99,6 +113,8 @@ int main() {
     printf("Test Fail: div should be {2, 2, 2}, instead of {%d, %d, %d}\n",
            multi.get(0), multi.get(1), multi.get(2));
   }
+
+  printf("9\n");
 
   // test left shift IntArray operator<<(int count) const;
   // resulting rot = {1,2,3} << 1 = {3,1,2}
@@ -114,6 +130,8 @@ int main() {
            rot.get(0), rot.get(1), rot.get(2));
   }
 
+  printf("10\n");
+
   // test operator char*() const;
   // resulting str = “A C” from {65, 9000, 67}
   base.set(0, 65);
@@ -128,6 +146,8 @@ int main() {
     printf("Test Fail: str should be \"A C\", instead of %s\n", str);
   }
 
+  printf("11\n");
+
   // test operator int() const;
   // resulting avg = int({1,4}) = 2.5
   IntArray nbase(2, 1);
@@ -139,6 +159,8 @@ int main() {
     testFailCnt++;
     printf("Test Fail: avg should be 2, instead of %d\n", avg);
   }
+
+  printf("12\n");
 
   //added .exe file
   // print test result
