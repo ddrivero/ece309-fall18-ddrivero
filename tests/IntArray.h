@@ -1,7 +1,5 @@
 #include <iostream>
 
-using namespace std;
-
 class IntArray{
 private:
     int *arr;
@@ -10,14 +8,11 @@ private:
 public:
     IntArray(const char* str)
     {
-        cout<<"made it here"<<endl;
         int i = 0;
         while(str[i] != 0){
             i++;
         }
         length = i;
-
-        cout<<"found the length"<<endl;
 
         arr = new int[length];
 
