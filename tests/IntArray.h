@@ -8,11 +8,12 @@ private:
 public:
     IntArray(const char* str)
     {
+        cout<<"made it here"<<endl;
         int i = 0;
         while(str[i] != 0){
             i++;
         }
-        length = i - 1;
+        length = i;
 
         for(i = 0; i < length; i++){
             arr[i] = (int)str[i];
