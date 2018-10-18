@@ -13,8 +13,6 @@ unsigned int colCount;
 IntegerSetHT::IntegerSetHT(int htsize)
 :IntegerSet(htsize)
 {
-  empty_since_start = -2;
-  empty_after_removal = -1;
   probeDistance = 20;
    table = new int[size];
    for(int i=0; i<size; i++)
@@ -77,6 +75,15 @@ void IntegerSetHT::remove(int data)
   }
 }
 
+int IntegerSetHT::test()
+{
+    int a = 0;
+    for(int i = 0; i < size; i++){
+        if(table[i] != -2) a++;
+    }
+    return a;
+}
+
 int main()
 {
   IntegerSetHT set(1000);
@@ -88,6 +95,7 @@ int main()
   }
   cout<<"colCount is "<<colCount<<endl;
   cout<<"failCount is "<<failCount<<endl;
+  cout<<"a is "<<set.test()<<endl;
 
 
   return 0;

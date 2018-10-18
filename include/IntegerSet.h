@@ -7,12 +7,7 @@
 class IntegerSet {
 protected:
    int size;
-   int hash(int key) const
-   {
-       key = key * key;
-       key = key % 1000;
-       return key;
-   }
+   int hash(int key) const { return (key * 997) % size; }
 public:
    IntegerSet(int htsize):size(htsize) {}
    virtual bool insert(int) = 0;
@@ -25,13 +20,14 @@ class IntegerSetHT : public IntegerSet {
 protected:
   int *table;
   int probeDistance;
-  int empty_since_start;
-  int empty_after_removal;
+  int empty_since_start = -2;
+  int empty_after_removal = -1;
 public:
    IntegerSetHT(int htsize);
    virtual bool insert(int);
    virtual bool search(int) const;
    virtual void remove(int);
+   int test(void);
 };
 
 // Hash Table with Chaining
