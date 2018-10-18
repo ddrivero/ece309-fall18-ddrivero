@@ -20,8 +20,8 @@ class IntegerSetHT : public IntegerSet {
 protected:
   int *table;
   int probeDistance;
-  int empty_since_start = -2;
-  int empty_after_removal = -1;
+  int empty_since_start;
+  int empty_after_removal;
 public:
    IntegerSetHT(int htsize);
    virtual bool insert(int);

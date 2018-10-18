@@ -13,6 +13,8 @@ unsigned int colCount;
 IntegerSetHT::IntegerSetHT(int htsize)
 :IntegerSet(htsize)
 {
+  empty_since_start = -2;
+  empty_after_removal = -1;
   probeDistance = 20;
    table = new int[size];
    for(int i=0; i<size; i++)
