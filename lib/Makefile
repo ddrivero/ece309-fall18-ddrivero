@@ -1,6 +1,6 @@
 
 # add files you create here
-OBJ = IntArray.o
+OBJ = derp.o
 
 all: libece309.a
 
