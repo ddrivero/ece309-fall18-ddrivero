@@ -75,46 +75,6 @@ void IntegerSetHT::remove(int data)
   }
 }
 
-/*IntegerSetHTChain::IntegerSetHTChain(int htsize)
-:IntegerSet(htsize)
-{
-  table = new List[size];
-}
-
-bool IntegerSetHTChain::insert(int data)
-{
-  List::iterator it;
-  table[hash(data)].insertAfter(it,data);
-  return true;
-}
-
-bool IntegerSetHTChain::search(int data) const
-{
-   List::iterator it = table[hash(data)].begin();
-   while(!it.end())
-   {
-     if(it.getItem() == data)
-        return true;
-     it.increment();
-   }
-   return false;
-}
-
-void IntegerSetHTChain::remove(int data)
-{
-   List::iterator prev,it = table[hash(data)].begin();
-   while(!it.end())
-   {
-     if(it.getItem() == data) {
-        table[hash(data)].removeAfter(prev);
-        return;
-     }
-     prev = it;
-     it.increment();
-   }
-}*/
-
-
 int main()
 {
   IntegerSetHT set(1000);
