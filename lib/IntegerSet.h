@@ -1,8 +1,5 @@
 #ifndef INTEGERSET_H
 #define INTEGERSET_H
-#include <iostream>
-
-using namespace std;
 
 //#include "List.h"
 
@@ -10,12 +7,7 @@ using namespace std;
 class IntegerSet {
 protected:
    int size;
-   int hash(int key) const
-   {
-       key = key * key;
-       key = key % 1000;
-       return key;
-   }
+   int hash(int key) const { return (key * 997) % size; }
 public:
    IntegerSet(int htsize):size(htsize) {}
    virtual bool insert(int) = 0;
@@ -28,56 +20,14 @@ class IntegerSetHT : public IntegerSet {
 protected:
   int *table;
   int probeDistance;
-  int empty_since_start;
-  int empty_after_removal;
+  int empty_since_start = -2;
+  int empty_after_removal = -1;
 public:
    IntegerSetHT(int htsize);
-   class iterator{
-   private:
-       int *fakeTable;
-       int index;
-       int siz;
-   public:
-       void setSiz(int a){siz = a;}
-       void setTable(int* a){fakeTable = a;}
-       void setIndex(int a){index = a;}
-       int getIndex(){return index;}
-       bool end(void){
-           if(index == siz-1){return true;}
-           for(int i = index; i < siz; i++){
-                if(fakeTable[i] > -1){
-                    return false;
-                }
-           }
-           return true;
-       }
-       void increment(void){
-           index++;
-           while(fakeTable[index] < 0 && index < siz-1){
-                index++;
-           }
-       }
-       int getInt(){return fakeTable[index];}
-       void print(){
-            for(int i = 0; i < siz; i++){
-                cout<<fakeTable[i]<<" ";
-            }
-            cout<<endl;
-       }
-   };
    virtual bool insert(int);
    virtual bool search(int) const;
    virtual void remove(int);
-   iterator begin(void){
-        iterator a;
-        a.setTable(table);
-        a.setIndex(0);
-        a.setSiz(size);
-        while(a.getInt() < 0){
-            a.increment();
-        }
-        return a;
-   }
+   int test(void);
 };
 
 // Hash Table with Chaining
