@@ -1,5 +1,5 @@
 # list the name of each file (without the .cpp file at the end)
-EXE = IntArray_test
+EXE = IntInf_test
 
 all: $(EXE)
 
