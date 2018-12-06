@@ -1,8 +1,20 @@
+#include "example.h"
 #include <stdio.h>
-#include <example.h>
 
-int main()
-{
-  example();
-  return 0;
+using namespace ece309;
+
+namespace ece309{
+
+    void example(void)
+    {
+      printf("The example works!\n");
+    }
+
+}
+
+int main(){
+
+    example();
+
+return 0;
 }

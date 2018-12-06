@@ -1,5 +1,7 @@
-#include <IntInf.h>
+#include "IntInf.h"
 #include <iostream>
+
+using namespace ece309;
 
 int main(){
 

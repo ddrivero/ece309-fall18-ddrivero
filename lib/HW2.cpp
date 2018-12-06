@@ -2,105 +2,109 @@
 
 using namespace std;
 
-class ListNode{
-  private:
-    string word;
-    ListNode *next;
-   public:
-    ListNode(string a)
-      {word = a; next = NULL; }
-    ListNode* getNext() { return next; }
-    void setNext(ListNode *n) { next = n; }
-    string getWord() { return word; }
-};
+namespace ece309{
 
-class List{
-  private:
-    ListNode *head;
-    ListNode *tail;
-  public:
-      List(){
-          head = NULL;
-          tail = NULL;
-      }
-      ~List()
-      {
-        string t;
-        while(!empty())
-        {
-          remove(t);
-        }
-      }
+    class ListNode{
+      private:
+        string word;
+        ListNode *next;
+       public:
+        ListNode(string a)
+          {word = a; next = NULL; }
+        ListNode* getNext() { return next; }
+        void setNext(ListNode *n) { next = n; }
+        string getWord() { return word; }
+    };
 
-      void append(string a)
-      {
-        ListNode *node = new ListNode(a);
-        if (head == NULL)
-          {
-            head = node;
-            tail = node;
-          } else {
-            tail->setNext(node);
-            tail = node;
+    class List{
+      private:
+        ListNode *head;
+        ListNode *tail;
+      public:
+          List(){
+              head = NULL;
+              tail = NULL;
           }
-      }
+          ~List()
+          {
+            string t;
+            while(!empty())
+            {
+              remove(t);
+            }
+          }
 
-      bool empty()
-      {
-        return head == NULL;
-      }
+          void append(string a)
+          {
+            ListNode *node = new ListNode(a);
+            if (head == NULL)
+              {
+                head = node;
+                tail = node;
+              } else {
+                tail->setNext(node);
+                tail = node;
+              }
+          }
 
-      void push_back(string a)
-      {
-        append(a);
-      }
+          bool empty()
+          {
+            return head == NULL;
+          }
 
-      ListNode *get(int n)
-      {
-        ListNode *a = head;
-        for(int i = 1; i < n; i++)
-        {
-          a = a->getNext();
-        }
-        return a;
-      }
+          void push_back(string a)
+          {
+            append(a);
+          }
 
-      int length()
-      {
-        ListNode *a = head;
-        int n = 0;
-        while(a != NULL)
-        {
-          n++;
-          a = a->getNext();
-        }
-		return n;
-      }
+          ListNode *get(int n)
+          {
+            ListNode *a = head;
+            for(int i = 1; i < n; i++)
+            {
+              a = a->getNext();
+            }
+            return a;
+          }
 
-      bool remove(string &copy)
-      {
-        if (!empty())
-        {
-          copy = head->getWord();
-          ListNode *temp = head->getNext();
-          delete head;
-          head = temp;
-          if (temp == NULL)
-            tail = NULL;
-          return true;
-        }
-        return false;
-      }
+          int length()
+          {
+            ListNode *a = head;
+            int n = 0;
+            while(a != NULL)
+            {
+              n++;
+              a = a->getNext();
+            }
+            return n;
+          }
 
-      string remove_front()
-      {
-        string a;
-        remove(a);
-        return a;
-      }
+          bool remove(string &copy)
+          {
+            if (!empty())
+            {
+              copy = head->getWord();
+              ListNode *temp = head->getNext();
+              delete head;
+              head = temp;
+              if (temp == NULL)
+                tail = NULL;
+              return true;
+            }
+            return false;
+          }
+
+          string remove_front()
+          {
+            string a;
+            remove(a);
+            return a;
+          }
 
 
-};
+    };
+
+}
 
 int main(){
   //nothing here
